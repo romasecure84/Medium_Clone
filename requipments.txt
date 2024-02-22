@@ -1,0 +1,9 @@
+asgiref==3.7.2
+Django==5.0.2
+django-autoslug==1.9.9
+django-tinymce==3.7.1
+pillow==10.2.0
+python-slugify==8.0.4
+sqlparse==0.4.4
+text-unidecode==1.3
+tzdata==2024.1
