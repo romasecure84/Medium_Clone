@@ -138,3 +138,17 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Goruleek isler:
+# TODO: Login
+# TODO: Sign Up(Istifadeci bilgilerinin saxlanilmasi/ one_to_one / prifile)
+# TODO: Reset Password
+# TODO: User Avatar, Instagram Account, user_slug(first_name, last_name)
+# TODO: Blog App
+# TODO: Post(Login User)
+# TODO: User Tag Maker(Istifadeci tag bilgilerini vergul ile ayiraraq gonderilmesi)
+# TODO: Popular
+# TODO: User favorite
+# TODO: PAGE App MOdel Structure / Admin
+
