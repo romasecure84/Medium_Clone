@@ -4,7 +4,6 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def login_view(request):
-    # login olan istifadeci birbasa ana sehifeye getsin
     if request.user.is_authenticated:
         # qaqas :), sen artiq login olmusan!
         messages.warning(request, f'{request.user.username} Daha evvel login olmusunuz!')
@@ -14,8 +13,11 @@ def login_view(request):
         # print(request.POST)
         username = request.POST.get('username')
         password = request.POST.get('password')
-        print(username, password)
-        # Bu bilgilerin dogru alinib alinmadigini kontrol edelim
+        
+        if len(username) < 6 or len(password) < 6:
+            messages.warning(request, 'Zehmet olmasa istifadece adini ve ya sifresinin uygun giriniz!')
+            return redirect('user_profile:login_view')
+        
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
