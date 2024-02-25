@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 def login_view(request):
@@ -22,3 +22,8 @@ def login_view(request):
             messages.success(request, f'{request.user.username} Login Oldunuz!')
             return redirect('home_view')
     return render(request, 'user_profile/login.html', context)
+
+def logout_view(request):
+    messages.warning(request, f'{request.user.username} Logout Oldunuz!')
+    logout(request)
+    return redirect('home_view')
