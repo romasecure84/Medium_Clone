@@ -142,8 +142,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Goruleek isler:
-# TODO: Login
-# TODO: Logout
+# DONE: Login
+# DONE: Logout
 # TODO: Sign Up(Istifadeci bilgilerinin saxlanilmasi/ one_to_one / prifile)
 # TODO: Reset Password
 # TODO: User Avatar, Instagram Account, user_slug(first_name, last_name)

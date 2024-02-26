@@ -1,0 +1,55 @@
+{% extends 'core/base_without_navbar.html' %}
+
+{% block content %}
+<div class="bg-muted">
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <h1 class="text-dark">Qeydiyyatdan Kec:</h1>
+            <form method="post">
+              {% csrf_token %}
+                <!-- formda metod teyin etmeyi unutma! Eger aramada gorunmeyecekse metod POST olmalidir -->
+                <!-- her input bilgisinin name bilgisi olmasi lazimdir! -->
+                <!-- csrf token bilgisi olmalidir!! -->
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">Ad</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Soyad</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email addresiniz</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email-confirm" class="form-label">Email addresinizi tesdiqleyin</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email-confirm">
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Sifre</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>    
+
+                <div class="mb-3">
+                    <label for="password-confirm" class="form-label">Sifrenizi Tesdiqleyin</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password-confirm">
+                </div>   
+
+                <div class="mb-3">
+                    <label for="instagram" class="form-label">Instagram Hesabiniz</label>
+                    <input type="text" class="form-control" id="instagram" name="instagram">
+                </div> 
+
+                <button type="submit" class="btn btn-primary">Qeydiyyatdan Kec</button>
+              </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content %}
