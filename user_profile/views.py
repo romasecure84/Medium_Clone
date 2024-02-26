@@ -21,12 +21,12 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            messages.success(request, f'{request.user.username} Login Oldunuz!')
+            messages.success(request, f'{request.user.username} Sessiyaniz Basladi!')
             return redirect('home_view')
     return render(request, 'user_profile/login.html', context)
 
 def logout_view(request):
-    messages.warning(request, f'{request.user.username} Logout Oldunuz!')
+    messages.warning(request, f'{request.user.username} Sessiyaniz Bitdi!')
     logout(request)
     return redirect('home_view')
 
