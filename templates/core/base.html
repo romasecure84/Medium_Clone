@@ -13,9 +13,12 @@
 <body>
 
     {% include 'core/messages.html' %}
-
     {% include 'core/navbar.html' %}
 
+    
+    {% block content %}
+    {% endblock content %}
+        
     <!-- hero -->
     <div class="bg-warning border border-bottom border-dark">
         <div class="container py-5">
