@@ -3,6 +3,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
+from slugify import slugify
+
+from.models import Profile
+
 
 def login_view(request):
     if request.user.is_authenticated:
@@ -25,6 +29,7 @@ def login_view(request):
             messages.success(request, f'{request.user.username} Sessiyaniz Basladi!')
             return redirect('home_view')
     return render(request, 'user_profile/login.html', context)
+
 
 def logout_view(request):
     messages.warning(request, f'{request.user.username} Sessiyaniz Bitdi!')
@@ -59,12 +64,28 @@ def register_view(request):
         user, created = User.objects.get_or_create(username=email)
         # Eger istifadeci created deyilse daha evvel qeydiyyatdan kecib
         if not created:
-            user = authenticate(request, username=email, password=password)            
+            user_login = authenticate(request, username=email, password=password)            
             if user is not None:
-                login(request, user)
+                login(request, user_login)
+                # Istifadeci Login oldu
                 messages.success(request, 'Daha Evvel Uzv Olmusunuz.. Ana Sehifeye Yonlendirildiniz!')                
                 return redirect('home_view')
             messages.warning(request, f'{email} adresi sistemde movcuddur, amma login olmadiniz.. Login Sehifesine Yonlendirildiniz..')
             return redirect('user_profile:login_view')
+        user.email = email
+        user.first_name = first_name
+        user.last_name = last_name
+        user.set_password(password)
+
+        profile, profile_created = Profile.objects.get_or_create(user = user)
+        profile.instagram = instagram
+        profile.slug = slugify(f"{first_name}-{last_name}")
+        user.save()
+        profile.save()
+
+        messages.success(request, f'{user.first_name} Ugurla Qeydiyyatdan Kecdiniz!')
+        user_login = authenticate(request, username=email, password=password)
+        login(request, user_login)
+        return redirect('home_view')
 
     return render(request, 'user_profile/register.html', context)
