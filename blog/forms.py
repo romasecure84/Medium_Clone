@@ -1,12 +1,12 @@
 from django import forms
-from .models import Post
+from .models import BlogPost
 
 
-class PostModelForm(forms.ModelForm):
+class BlogPostModelForm(forms.ModelForm):
     tag = forms.CharField()
 
     class Meta:
-        model = Post
+        model = BlogPost
         fields = [
             'title',
             'cover_image',
