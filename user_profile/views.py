@@ -7,7 +7,6 @@ from slugify import slugify
 
 from.models import Profile
 
-
 def login_view(request):
     if request.user.is_authenticated:
         # qaqas :), sen artiq login olmusan!
