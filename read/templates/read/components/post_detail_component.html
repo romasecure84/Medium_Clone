@@ -44,7 +44,7 @@
         <ul class="list-inline mt-2">
             {% for tag in post.tag.all %}
                 <li class="list-inline-item">
-                    <a href="#" class="text-decoration-none text-muted fs-14">{{ tag.title }}</a>
+                    <a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-muted fs-14">{{ tag.title }}</a>
                 </li>
             {% endfor %}
         </ul>

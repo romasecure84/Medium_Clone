@@ -228,7 +228,11 @@
                 <h6 class="my-3">Discover more of what matters to you</h6>
                 <ul class="list-inline mb-2">
                     {% for category in categories %} 
-                    <li class="list-inline-item border p-2 text-muted fs-12 mb-1 rounded">{{ category.title }}</li>
+                    <li class="list-inline-item border p-2 text-muted fs-12 mb-1 rounded">
+                        <a href="{{ category.get_absolute_url }}" class="link-dark">
+                            {{ category.title }}
+                        </a>
+                    </li>
                     {% endfor %}                  
                     <ul><a class="text-success" href="#">See more topics</a></ul>
                 </ul>
@@ -236,7 +240,7 @@
                 <ul class="list-inline mt-2">
                     {% for tag in tags %}
                         <li class="list-inline-item">
-                            <a href="#" class="text-decoration-none text-muted fs-14">{{ tag.title }}</a>
+                            <a href="{{ tag.get_absolute_url }}" class="text-decoration-none text-muted fs-14">{{ tag.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>

@@ -1,6 +1,6 @@
 {% load thumbnail %}
 <article class="row mb-3">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
         <div>
             <a href="{{ post.user.profile.get_absolute_url }}" class="text-decoration-none text-muted">
                 <img src="https://picsum.photos/id/1/30/30?grayscale" class="rounded-circle" alt="">
@@ -25,8 +25,13 @@
                       </svg>
                 </li>
                 <li
-                    class="list-inline-item text-secondary border p-1 fs-14 mb-2 bg-secondary bg-opacity-10 rounded-pill">
-                    {{ post.category }}</li>
+                    class="list-inline-item fs-12">
+                    <a href="{{ post.category.get_absolute_url}}">
+                        <span class="badge bg-secondary">
+                            {{ post.category }}
+                        </span>
+                    </a>
+                </li>
                 <li class="list-inline-item fs12 float-end"><svg xmlns="http://www.w3.org/2000/svg"
                         width="16" height="16" fill="currentColor" class="bi bi-journal-check"
                         viewBox="0 0 16 16">
@@ -40,7 +45,7 @@
             </ul>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-2">
         <img src="{{ post.cover_image|thumbnail_url:'thumbnail' }}" alt="" class="w-100 img-thumbnail">
     </div>
 
