@@ -157,9 +157,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # TODO: Sign Up(Istifadeci bilgilerinin saxlanilmasi/ one_to_one / prifile)
 # TODO: Reset Password
 # TODO: User Avatar, Instagram Account, user_slug(first_name, last_name)
-# TODO: Blog App
-# TODO: Post(Login User)
-# TODO: User Tag Maker(Istifadeci tag bilgilerini vergul ile ayiraraq gonderilmesi)
+# DONE: Blog App
+# DONE: Post(Login User)
+# DONE: User Tag Maker(Istifadeci tag bilgilerini vergul ile ayiraraq gonderilmesi)
 # TODO: Popular
 # TODO: User favorite
 # TODO: PAGE App MOdel Structure / Admin
@@ -173,7 +173,7 @@ THUMBNAIL_ALIASES = {
         'avatar': {'size': (30, 30), 'crop': True},
         'avatar2x': {'size': (60, 60), 'crop': True},
         'thumbnail': {'size': (400, 300), 'crop': True},
-        'page': {'size': (1000, 300), 'crop': True},
+        'page': {'size': (1000, 30), 'crop': True},
 
     },
 }

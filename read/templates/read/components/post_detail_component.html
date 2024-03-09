@@ -5,7 +5,6 @@
     </div>
 
     <div class="col-sm-8 offset-sm-2">        
-        <div>
             <h3 class="mt-2 mb-1">{{ post.title }}</h3>
 
                 {{ post.content|safe }}
@@ -21,7 +20,12 @@
                 
             <ul class="list-inline fs-12 op-04">
                 <li class="list-inline-item text-secondary">Dec 28, 2023</li>
-                <li class="list-inline-item text-secondary">5 min read</li>
+                <li class="list-inline-item text-secondary">
+                    {{ post.view_count }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
+                        <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4m2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A2 2 0 0 0 8 6c-.532 0-1.016.208-1.375.547M14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0"/>
+                      </svg>
+                </li>
                 <li
                     class="list-inline-item text-secondary border p-1 fs-14 mb-2 bg-secondary bg-opacity-10 rounded-pill">
                     {{ post.category }}</li>
@@ -36,7 +40,15 @@
                             d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
                     </svg></li>
             </ul>
-        </div>
+        <hr>
+        <ul class="list-inline mt-2">
+            {% for tag in post.tag.all %}
+                <li class="list-inline-item">
+                    <a href="#" class="text-decoration-none text-muted fs-14">{{ tag.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <hr>
     </div>
     
 </article>
