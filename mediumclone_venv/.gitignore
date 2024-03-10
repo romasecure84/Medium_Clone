@@ -191,6 +191,7 @@ dmypy.json
 cython_debug/
 
 *.log
+*.jpg
 *.pot
 *.pyc
 __pycache__/
