@@ -10,6 +10,7 @@ from .models import Category, Tag, BlogPost
 
 @login_required(login_url='user:login_view')
 def create_blog_post_view(request):
+    title = "Yeni Blog Post Yaradin:"
     form = BlogPostModelForm()
     
     
@@ -29,10 +30,11 @@ def create_blog_post_view(request):
             return redirect('home_view')
         
     context = dict(
-        form=form
+        form=form,
+        title=title,
     )
     
-    return render(request, 'blog/create_blog_post.html', context)
+    return render(request, 'blog/form.html', context)
 
 
 def category_view(request, category_slug):
