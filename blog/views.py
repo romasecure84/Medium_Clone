@@ -34,7 +34,7 @@ def create_blog_post_view(request):
         title=title,
     )
     
-    return render(request, 'blog/form.html', context)
+    return render(request, 'common_components/form.html', context)
 
 
 def category_view(request, category_slug):
