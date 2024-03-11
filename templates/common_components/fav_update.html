@@ -1,0 +1,12 @@
+{% load static %}
+<script src="{% static 'js/axios.min.js' %}"></script>
+<script>
+    const items = document.querySelectorAll("[data-post-slug]");
+
+    items.forEach(item => item.addEventListener('click', event => {
+        const slug = event.target.getAttribute('data-post-slug');
+        console.log(slug)
+
+        let form = new FormData
+    }))
+</script>
