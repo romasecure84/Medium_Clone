@@ -7,6 +7,12 @@
         const slug = event.target.getAttribute('data-post-slug');
         console.log(slug)
 
-        let form = new FormData
+        if (slug) {
+            let form = new FormData()
+            form.append('slug', slug)
+            form.append('csrfmiddlewaretoken','{{ csrf_token }}')
+
+            axios.post('/blog/fav-update/', form).then(res => console.log(res)).catch( err => console.error(err))
+        }
     }))
 </script>
