@@ -7,7 +7,7 @@ import json
 
 from .forms import BlogPostModelForm
 from .models import Category, Tag, BlogPost, UserPostFav
-
+    
 
 @login_required(login_url='user:login_view')
 def fav_update_view(request):
